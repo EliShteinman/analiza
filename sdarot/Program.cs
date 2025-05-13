@@ -165,7 +165,7 @@
         /// <param name="arg">double</param>
         static void Print(double arg)
         {
-            
+            Console.WriteLine(arg);
         }
         
         /// <summary>
