@@ -183,7 +183,7 @@
         /// <param name="arg">int</param>
         static void Print(int arg)
         {
-            
+            Console.WriteLine(arg);
         }
         
         /// <summary>
