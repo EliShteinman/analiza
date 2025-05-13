@@ -12,15 +12,7 @@
         /// <param name="args">An array of input arguments provided to the application.</param>
         static void Main(string[] args)
         {
-            if (CountElements(args) == 0)
-            {
-                ManegerUserInput();
-            }
-            else if (!ValidateInput(args))
-            {
-                ManegerUserInput();
-            }
-            MenuManagement();
+            ManegerUserInput(args);
         }
 
         /// <summary>
@@ -47,7 +39,7 @@
         /// <summary>
         /// 
         /// </summary>
-        static void ToIntList(List<string> args)
+        static void ToIntList(string[] args)
         {
             
         }
@@ -69,11 +61,19 @@
         }
 
         /// <summary>
-        /// Manages receiving input from the user until the input is valid.
+        /// Manages and validates the input from the user, ensuring it meets the required conditions.
+        /// If validation fails, prompts the user to provide new input.
         /// </summary>
-        static void ManegerUserInput()
+        /// <param name="args">An array of input arguments to be validated and processed.</param>
+        static void ManegerUserInput(string[] args)
         {
-            
+            if (!ValidateInput(args))
+            {
+                string[] userargs = GetUserInput();
+                ManegerUserInput(userargs);
+            }
+            ToIntList(args);
+            MenuManagement();
         }
 
         /// <summary>
