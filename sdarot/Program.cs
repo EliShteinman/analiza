@@ -160,17 +160,18 @@
             }
             return min;
         }
-        
-        /// <summary>
-        /// Accepts a list of ints and returns the average value.
-        /// </summary>
-        /// <param name="arg">Gets a list of ints</param>
-        /// <returns>Average number as double</returns>
-        static double FindAverage(List<int> arg)
-        {
 
+        /// <summary>
+        /// Calculates the average by dividing the numerator by the denominator.
+        /// </summary>
+        /// <param name="numerator">The numerator for the calculation.</param>
+        /// <param name="denominator">The denominator for the calculation.</param>
+        /// <returns>The calculated average as a double.</returns>
+        static double FindAverage(int numerator, int denominator)
+        {
+            return (double)numerator / denominator;
         }
-        
+
         /// <summary>
         /// This function turns off the software.
         /// </summary>
