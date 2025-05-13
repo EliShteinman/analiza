@@ -69,7 +69,19 @@
         /// </summary>
         static void PrintMenu()
         {
-            
+            CleerTheScreen();
+            Print("menu");
+            Print("Please select an option:");
+            Print("a. Input a Series. (Replace the current series)");
+            Print("b. Display the series in the order it was entered.");
+            Print("c. Display the series in the reversed order it was entered.");
+            Print("d. Display the series in sorted order (from low to high).");
+            Print("e. Display the Max value of the series.");
+            Print("f. Display the Min value of the series.");
+            Print("g. Display the Average of the series.");
+            Print("h. Display the Number of elements in the series.");
+            Print("i. Display the Sum of the series.");
+            Print("j. Exit.");
         }
 
         /// <summary>
