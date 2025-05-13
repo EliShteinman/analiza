@@ -174,7 +174,7 @@
         /// <param name="arg">string</param>
         static void Print(string arg)
         {
-            
+            Console.WriteLine(arg);
         }
         
         /// <summary>
