@@ -6,6 +6,7 @@
     /// </summary>
     class StatsCalculator
     {
+        private static List<int> numbers;
         /// <summary>
         /// The entry point for the application. Validates the input and manages the program flow.
         /// </summary>
@@ -41,7 +42,11 @@
         /// </summary>
         static void ToIntList(string[] args)
         {
-            
+            numbers = new List<int>();
+            foreach (string arg in args)
+            {
+                numbers.Add(int.Parse(arg));
+            }
         }
         
         /// <summary>
