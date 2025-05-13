@@ -38,8 +38,9 @@
         }
 
         /// <summary>
-        /// 
+        /// Converts an array of strings representing numbers into a list of integers.
         /// </summary>
+        /// <param name="args">An array of string inputs, where each element is expected to represent a positive integer.</param>
         static void ToIntList(string[] args)
         {
             numbers = new List<int>();
