@@ -135,9 +135,17 @@
         /// </summary>
         /// <param name="arg">Gets a list of ints</param>
         /// <returns>Lowest number as int</returns>
-        static string FindMin(List<int> arg)
+        static int FindMin(List<int> arg)
         {
-
+            int min = arg[0];
+            foreach (int item in arg)
+            {
+                if (item < min)
+                {
+                    min = item;
+                }
+            }
+            return min;
         }
         
         /// <summary>
