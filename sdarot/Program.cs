@@ -192,7 +192,11 @@
         /// <param name="arg">List of strings</param>
         static void Print(List<string> arg)
         {
-            
+            foreach (string item in arg)
+            {
+                Console.WriteLine(item);
+            }
+                
         }
         
         /// <summary>
