@@ -116,7 +116,62 @@
         /// </summary>
         static void MenuManagement()
         {
-            
+            PrintMenu();
+            string UserSelection = Console.ReadLine();
+            switch (UserSelection)
+            {
+                case "a": // a. Input a Series. (Replace the current series)
+                    string[] ignore = new string[]{};
+                    CleerTheScreen();
+                    ManegerUserInput(ignore);
+                    break;
+                case "b": // b. Display the series in the order it was entered.
+                    CleerTheScreen();
+                    Print(numbers);
+                    break;
+                case "c": // c. Display the series in the reversed order it was entered.
+                    CleerTheScreen();
+                    for (int i = CountElements(numbers) - 1; i >= 0; i--)
+                    {
+                        Print(numbers[i]);
+                    }
+                    break;
+                case "d": // d. Display the series in sorted order (from low to high).
+                    CleerTheScreen();
+                    List<int> temp = new List<int>(numbers);
+                    temp.Sort();
+                    Print(temp);
+                    break;
+                case "e": // e. Display the Max value of the series.
+                    CleerTheScreen();
+                    Print(FindMax(numbers));
+                    break;
+                case "f": // f. Display the Min value of the series.
+                    CleerTheScreen();
+                    Print(FindMin(numbers));
+                    break;
+                case "g": // g. Display the Average of the series.
+                    CleerTheScreen();
+                    Print(FindAverage(FindSum(numbers), CountElements(numbers)));
+                    break;
+                case "h": // h. Display the Number of elements in the series.
+                    CleerTheScreen();
+                    Print(CountElements(numbers));
+                    break;
+                case "i": // i. Display the Sum of the series.
+                    CleerTheScreen();
+                    Print(FindSum(numbers));
+                    break;
+                case "j": // j. Exit.
+                    CleerTheScreen();
+                    Exit();
+                    break;
+                default: // Invalid selection.
+                    Print("Invalid selection.");
+                    Print("Please select a valid option.");
+                    break;
+            }
+            BackToMenu();
         }
         
         /// <summary>
@@ -136,19 +191,14 @@
         /// <returns>Returns an INT of the quantity.</returns>
         static int CountElements(List<int> arg)
         {
-            
+            int count = 0;
+            foreach (int item in arg)
+            {
+                count ++;
+            }
+            return count;
         }
-
-        /// <summary>
-        /// Counts the number of elements in the array.
-        /// </summary>
-        /// <param name="arg">Gets an array of strings</param>
-        /// <returns>Returns an INT of the quantity.</returns>
-        static int CountElements(List<string> arg)
-        {
-            
-        }
-
+        
         /// <summary>
         /// Counts the number of elements in the provided array.
         /// </summary>
