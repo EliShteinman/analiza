@@ -92,7 +92,17 @@
         {
             
         }
-
+        
+        /// <summary>
+        /// This function returns the user to the menu.
+        /// </summary>
+        static void BackToMenu()
+        {
+            Print("Press any key to return to the menu.");
+            Console.ReadKey();
+            MenuManagement();
+        }
+        
         /// <summary>
         /// Counts the number of elements in a list.
         /// </summary>
