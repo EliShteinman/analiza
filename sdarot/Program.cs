@@ -6,16 +6,21 @@
     /// </summary>
     class StatsCalculator
     {
-
         /// <summary>
-        /// The entry point
-        /// manages the reception and validation of initial input
-        /// and calls to the menu
+        /// The entry point for the application. Validates the input and manages the program flow.
         /// </summary>
-        /// <param name="args">The list of parameters that will come from the command line</param>
+        /// <param name="args">An array of input arguments provided to the application.</param>
         static void Main(string[] args)
         {
-            
+            if (CountElements(args) == 0)
+            {
+                ManegerUserInput();
+            }
+            else if (!ValidateInput(args))
+            {
+                ManegerUserInput();
+            }
+            MenuManagement();
         }
 
         /// <summary>
@@ -26,7 +31,7 @@
         /// <param name="args">Gets a list of strings</param>
         /// <returns >True if all members are OK.
         /// False if even one of the members is not OK</returns>
-        static bool ValidateInput(List<string> args)
+        static bool ValidateInput(string[] args)
         {
             
         }
