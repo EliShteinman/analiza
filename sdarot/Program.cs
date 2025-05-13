@@ -55,10 +55,17 @@
         /// <summary>
         /// Responsible for receiving input from the user
         /// </summary>
-        /// <returns>Returns a list of strings containing the user's input.</returns>
+        /// <returns>Returns an arr of strings containing the user's input.</returns>
         static string[] GetUserInput()
         {
-            
+            CleerTheScreen();
+            Print("Please enter a series of positive numbers,");
+            Print("A minimum of 3 members is required.");
+            Print("Separate each element with a space.");
+            Print("For example \"1 24 567\"");
+            string input = Console.ReadLine();
+            string[] temp = input.Split(' ');
+            return temp;
         }
 
         /// <summary>
