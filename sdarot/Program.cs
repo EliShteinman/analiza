@@ -24,16 +24,24 @@
         }
 
         /// <summary>
-        /// Validates user input according to the following rules.
-        /// At least 3 elements
-        /// All elements are positive numbers
+        /// Validates the input arguments to ensure they meet the required conditions.
         /// </summary>
-        /// <param name="args">Gets a list of strings</param>
-        /// <returns >True if all members are OK.
-        /// False if even one of the members is not OK</returns>
+        /// <param name="args">An array of input arguments provided to the application.</param>
+        /// <returns>True if the input arguments are valid; otherwise, false.</returns>
         static bool ValidateInput(string[] args)
         {
-            
+            if (CountElements(args) < 3)
+            {
+                return false;
+            }
+            foreach (string arg in args)
+            {
+                if (!int.TryParse(arg, out int temp) || temp < 0)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         /// <summary>
@@ -48,7 +56,7 @@
         /// Responsible for receiving input from the user
         /// </summary>
         /// <returns>Returns a list of strings containing the user's input.</returns>
-        static List<string> GetUserInput()
+        static string[] GetUserInput()
         {
             
         }
