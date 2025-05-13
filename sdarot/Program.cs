@@ -100,15 +100,20 @@
         {
 
         }
-        
+
         /// <summary>
-        /// 
+        /// Counts the number of elements in the provided array.
         /// </summary>
-        /// <param name="arg"></param>
-        /// <returns></returns>
+        /// <param name="arg">The array of strings whose elements are to be counted.</param>
+        /// <returns>The total count of elements in the array.</returns>
         static int CountElements(string[] arg)
         {
-
+            int count = 0;
+            foreach (string item in arg)
+            {
+                count ++;
+            }
+            return count;
         }
         /// <summary>
         /// This function returns the value of all members.
