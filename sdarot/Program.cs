@@ -201,7 +201,11 @@
         /// <param name="arg">List of ints</param>
         static void Print(List<int> arg)
         {
-            
+            foreach (int item in arg)
+            {
+                Console.WriteLine(item);
+            }
+                
         }
     }
 }
