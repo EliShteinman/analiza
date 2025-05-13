@@ -61,7 +61,7 @@
         /// </summary>
         static void CleerTheScreen()
         {
-            
+            Console.Clear();
         }
 
         /// <summary>
