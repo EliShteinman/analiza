@@ -15,7 +15,7 @@
         /// <param name="args">The list of parameters that will come from the command line</param>
         static void Main(string[] args)
         {
-
+            
         }
 
         /// <summary>
@@ -28,7 +28,7 @@
         /// False if even one of the members is not OK</returns>
         static bool ValidateInput(List<string> args)
         {
-
+            
         }
 
         /// <summary>
@@ -45,7 +45,7 @@
         /// <returns>Returns a list of strings containing the user's input.</returns>
         static List<string> GetUserInput()
         {
-
+            
         }
 
         /// <summary>
@@ -53,7 +53,7 @@
         /// </summary>
         static void ManegerUserInput()
         {
-
+            
         }
 
         /// <summary>
@@ -61,7 +61,7 @@
         /// </summary>
         static void CleerTheScreen()
         {
-
+            
         }
 
         /// <summary>
@@ -69,7 +69,7 @@
         /// </summary>
         static void PrintMenu()
         {
-
+            
         }
 
         /// <summary>
@@ -78,7 +78,7 @@
         /// </summary>
         static void MenuManagement()
         {
-
+            
         }
 
         /// <summary>
@@ -88,7 +88,7 @@
         /// <returns>Returns an INT of the quantity.</returns>
         static int CountElements(List<int> arg)
         {
-
+            
         }
 
         /// <summary>
@@ -98,7 +98,7 @@
         /// <returns>Returns an INT of the quantity.</returns>
         static int CountElements(List<string> arg)
         {
-
+            
         }
 
         /// <summary>
