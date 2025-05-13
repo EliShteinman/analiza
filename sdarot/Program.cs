@@ -155,7 +155,8 @@
         /// </summary>
         static void Exit()
         {
-            
+            Print("Exiting...");
+            Environment.Exit(0);
         }
         
         /// <summary>
