@@ -127,7 +127,15 @@
         /// <returns>Highest number as int</returns>
         static int FindMax(List<int> arg)
         {
-
+            int max = arg[0];
+            foreach (int item in arg)
+            {
+                if (item > max)
+                {
+                    max = item;
+                }
+            }
+            return max;
         }
         
         /// <summary>
