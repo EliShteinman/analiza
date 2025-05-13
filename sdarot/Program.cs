@@ -1,12 +1,17 @@
 ﻿namespace sdarot
 {
-    
+
     /// <summary>
     /// The software itself
     /// </summary>
     class StatsCalculator
     {
+        /// <summary>
+        /// A collection that stores integer values, representing the current series of numbers
+        /// inputted or managed in the StatsCalculator.
+        /// </summary>
         private static List<int> numbers;
+
         /// <summary>
         /// The entry point for the application. Validates the input and manages the program flow.
         /// </summary>
@@ -49,7 +54,7 @@
                 numbers.Add(int.Parse(arg));
             }
         }
-        
+
         /// <summary>
         /// Responsible for receiving input from the user
         /// </summary>
@@ -121,7 +126,7 @@
             switch (UserSelection)
             {
                 case "a": // a. Input a Series. (Replace the current series)
-                    string[] ignore = new string[]{};
+                    string[] ignore = new string[] { };
                     CleerTheScreen();
                     ManegerUserInput(ignore);
                     break;
@@ -173,7 +178,7 @@
             }
             BackToMenu();
         }
-        
+
         /// <summary>
         /// This function returns the user to the menu.
         /// </summary>
@@ -183,7 +188,7 @@
             Console.ReadKey();
             MenuManagement();
         }
-        
+
         /// <summary>
         /// Counts the number of elements in a list.
         /// </summary>
@@ -194,11 +199,11 @@
             int count = 0;
             foreach (int item in arg)
             {
-                count ++;
+                count++;
             }
             return count;
         }
-        
+
         /// <summary>
         /// Counts the number of elements in the provided array.
         /// </summary>
@@ -209,7 +214,7 @@
             int count = 0;
             foreach (string item in arg)
             {
-                count ++;
+                count++;
             }
             return count;
         }
@@ -227,7 +232,7 @@
             }
             return sum;
         }
-        
+
         /// <summary>
         /// Accepts a list of ints and returns the highest value.
         /// </summary>
@@ -245,7 +250,7 @@
             }
             return max;
         }
-        
+
         /// <summary>
         /// Accepts a list of ints and returns the lowest value.
         /// </summary>
@@ -283,7 +288,7 @@
             Print("Exiting...");
             Environment.Exit(0);
         }
-        
+
         /// <summary>
         /// This function accepts a double and prints it.
         /// </summary>
@@ -292,7 +297,7 @@
         {
             Console.WriteLine(arg);
         }
-        
+
         /// <summary>
         /// This function accepts a string and prints it.
         /// </summary>
@@ -301,7 +306,7 @@
         {
             Console.WriteLine(arg);
         }
-        
+
         /// <summary>
         /// This function accepts an int and prints it
         /// </summary>
@@ -310,7 +315,7 @@
         {
             Console.WriteLine(arg);
         }
-        
+
         /// <summary>
         /// This function receives a list of strings and prints it.
         /// </summary>
@@ -321,9 +326,9 @@
             {
                 Console.WriteLine(item);
             }
-                
+
         }
-        
+
         /// <summary>
         /// This function accepts a list of ints and prints it.
         /// </summary>
@@ -334,7 +339,7 @@
             {
                 Console.WriteLine(item);
             }
-                
+
         }
     }
 }
