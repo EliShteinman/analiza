@@ -117,7 +117,12 @@
         /// <returns>List item value as INT</returns>
         static int FindSum(List<int> arg)
         {
-            
+            int sum = 0;
+            foreach (int item in arg)
+            {
+                sum += item;
+            }
+            return sum;
         }
         
         /// <summary>
