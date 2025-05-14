@@ -18,7 +18,7 @@
         /// <param name="args">An array of input arguments provided to the application.</param>
         private static void Main(string[] args)
         {
-            ManegerUserInput(args);
+            UserInputManager(args);
         }
 
         /// <summary>
@@ -33,7 +33,7 @@
                 return false;
             }
 
-            for (int i = 0; i < CountElements(args) - 1; i++)
+            for (int i = 0; i < CountElements(args); i++)
             {
                 if (!int.TryParse(args[i], out int temp) || temp < 0)
                 {
@@ -51,7 +51,7 @@
         private static void ToIntList(string[] args)
         {
             _numbers = [];
-            for (int i = 0; i < CountElements(args) - 1; i++)
+            for (int i = 0; i < CountElements(args); i++)
             {
                 _numbers.Add(int.Parse(args[i]));
             }
@@ -78,12 +78,12 @@
         /// If validation fails, prompts the user to provide new input.
         /// </summary>
         /// <param name="args">An array of input arguments to be validated and processed.</param>
-        private static void ManegerUserInput(string[] args)
+        private static void UserInputManager(string[] args)
         {
             if (!ValidateInput(args))
             {
                 string[] userArgs = GetUserInput();
-                ManegerUserInput(userArgs);
+                UserInputManager(userArgs);
             }
 
             ToIntList(args);
@@ -153,7 +153,7 @@
             {
                 case "a": // a. Input a Series. (Replace the current series)
                     string[] ignore = [];
-                    ManegerUserInput(ignore);
+                    UserInputManager(ignore);
                     break;
                 case "b": // b. Display the series in the order it was entered.
                     Print(_numbers);
@@ -196,14 +196,14 @@
         }
 
         /// <summary>
-        /// Creates a copy of the provided list of integers.
+        /// Creates a copy of a list containing an int.
         /// </summary>
         /// <param name="arg">The list of integers to be copied.</param>
         /// <returns>A new list containing all elements from the input list.</returns>
         private static List<int> CopyList(List<int> arg)
         {
             List<int> temp = [];
-            for (int i = 0; i < CountElements(arg) - 1; i++)
+            for (int i = 0; i < CountElements(arg); i++)
             {
                 temp.Add(arg[i]);
             }
@@ -217,7 +217,7 @@
         /// <param name="arg">The list of integers to be sorted.</param>
         private static void SortList(List<int> arg)
         {
-            for (int i = 0; i < CountElements(arg) - 1; i++)
+            for (int i = 0; i < CountElements(arg); i++)
             {
                 bool swapped = false;
                 for (int j = 0; j < CountElements(arg) - 1 - i; j++)
@@ -303,7 +303,7 @@
         private static int FindSum(List<int> arg)
         {
             int sum = 0;
-            for (int i = 0; i < CountElements(arg) - 1; i++)
+            for (int i = 0; i < CountElements(arg); i++)
             {
                 sum += arg[i];
             }
@@ -319,7 +319,7 @@
         private static int FindMax(List<int> arg)
         {
             int max = arg[0];
-            for (int i = 0; i < CountElements(arg) - 1; i++)
+            for (int i = 0; i < CountElements(arg); i++)
             {
                 if (arg[i] > max)
                 {
@@ -338,7 +338,7 @@
         private static int FindMin(List<int> arg)
         {
             int min = arg[0];
-            for (int i = 0; i < CountElements(arg) - 1; i++)
+            for (int i = 0; i < CountElements(arg); i++)
             {
                 if (arg[i] < min)
                 {
@@ -402,7 +402,7 @@
         /// <param name="arg">List of strings</param>
         private static void Print(List<string> arg)
         {
-            for (int i = 0; i < CountElements(arg) - 1; i++)
+            for (int i = 0; i < CountElements(arg); i++)
             {
                 Console.WriteLine(arg[i]);
             }
@@ -414,7 +414,7 @@
         /// <param name="arg">List of ints</param>
         private static void Print(List<int> arg)
         {
-            for (int i = 0; i < CountElements(arg) - 1; i++)
+            for (int i = 0; i < CountElements(arg); i++)
             {
                 Console.WriteLine(arg[i]);
             }
