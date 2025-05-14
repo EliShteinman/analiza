@@ -143,8 +143,8 @@
                     break;
                 case "d": // d. Display the series in sorted order (from low to high).
                     CleerTheScreen();
-                    List<int> temp = new List<int>(numbers);
-                    temp.Sort();
+                    List<int> temp = CopyList(numbers);
+                    SortList(temp);
                     Print(temp);
                     break;
                 case "e": // e. Display the Max value of the series.
@@ -187,6 +187,56 @@
             Print("Press any key to return to the menu.");
             Console.ReadKey();
             MenuManagement();
+        }
+
+        /// <summary>
+        /// Creates a copy of the provided list of integers.
+        /// </summary>
+        /// <param name="arg">The list of integers to be copied.</param>
+        /// <returns>A new list containing all elements from the input list.</returns>
+        private static List<int> CopyList(List<int> arg)
+        {
+            List<int> temp = new List<int>();
+            foreach (int item in arg)
+            {
+                temp.Add(item);
+            }
+            return temp;
+        }
+
+        /// <summary>
+        /// Sorts a list of integers in ascending order using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arg">The list of integers to be sorted.</param>
+        private static void SortList(List<int> arg)
+        {
+            for (int i = 0; i < CountElements(arg) - 1; i++)
+            {
+                bool swapped = false;
+                for (int j = 0; j < CountElements(arg) - 1 - i; j++)
+                {
+                    if (arg[j] > arg[j + 1])
+                    {
+                        SwapInList(arg, j, j + 1);
+                        swapped = true;
+                    }
+                }
+                if (!swapped)
+                {
+                    break;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Swaps the elements in a list at the specified indices.
+        /// </summary>
+        /// <param name="arg">The list of integers where the swap will occur.</param>
+        /// <param name="index1">The index of the first element to be swapped.</param>
+        /// <param name="index2">The index of the second element to be swapped.</param>
+        private static void SwapInList(List<int> arg, int index1, int index2)
+        {
+            (arg[index1], arg[index2]) = (arg[index2], arg[index1]);
         }
 
         /// <summary>
