@@ -33,9 +33,9 @@
                 return false;
             }
 
-            foreach (string arg in args)
+            for (int i = 0; i < CountElements(args) - 1; i++)
             {
-                if (!int.TryParse(arg, out int temp) || temp < 0)
+                if (!int.TryParse(args[i], out int temp) || temp < 0)
                 {
                     return false;
                 }
@@ -51,9 +51,9 @@
         private static void ToIntList(string[] args)
         {
             _numbers = [];
-            foreach (string arg in args)
+            for (int i = 0; i < CountElements(args) - 1; i++)
             {
-                _numbers.Add(int.Parse(arg));
+                _numbers.Add(int.Parse(args[i]));
             }
         }
 
@@ -103,19 +103,22 @@
         /// </summary>
         private static void PrintMenu()
         {
+            List<string> menu = [
+                "menu",
+                "Please select an option:",
+                "a. Input a Series. (Replace the current series)",
+                "b. Display the series in the order it was entered.",
+                "c. Display the series in the reversed order it was entered.",
+                "d. Display the series in sorted order (from low to high).",
+                "e. Display the Max value of the series.",
+                "f. Display the Min value of the series.",
+                "g. Display the Average of the series.",
+                "h. Display the Number of elements in the series.",
+                "i. Display the Sum of the series.",
+                "j. Exit.",
+            ];
             CleerTheScreen();
-            Print("menu");
-            Print("Please select an option:");
-            Print("a. Input a Series. (Replace the current series)");
-            Print("b. Display the series in the order it was entered.");
-            Print("c. Display the series in the reversed order it was entered.");
-            Print("d. Display the series in sorted order (from low to high).");
-            Print("e. Display the Max value of the series.");
-            Print("f. Display the Min value of the series.");
-            Print("g. Display the Average of the series.");
-            Print("h. Display the Number of elements in the series.");
-            Print("i. Display the Sum of the series.");
-            Print("j. Exit.");
+            Print(menu);
         }
 
         /// <summary>
