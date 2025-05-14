@@ -16,7 +16,7 @@
         /// The entry point for the application. Validates the input and manages the program flow.
         /// </summary>
         /// <param name="args">An array of input arguments provided to the application.</param>
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             ManegerUserInput(args);
         }
@@ -26,7 +26,7 @@
         /// </summary>
         /// <param name="args">An array of input arguments provided to the application.</param>
         /// <returns>True if the input arguments are valid; otherwise, false.</returns>
-        static bool ValidateInput(string[] args)
+        private static bool ValidateInput(string[] args)
         {
             if (CountElements(args) < 3)
             {
@@ -46,7 +46,7 @@
         /// Converts an array of strings representing numbers into a list of integers.
         /// </summary>
         /// <param name="args">An array of string inputs, where each element is expected to represent a positive integer.</param>
-        static void ToIntList(string[] args)
+        private static void ToIntList(string[] args)
         {
             numbers = new List<int>();
             foreach (string arg in args)
@@ -59,7 +59,7 @@
         /// Responsible for receiving input from the user
         /// </summary>
         /// <returns>Returns an arr of strings containing the user's input.</returns>
-        static string[] GetUserInput()
+        private static string[] GetUserInput()
         {
             CleerTheScreen();
             Print("Please enter a series of positive numbers,");
@@ -76,7 +76,7 @@
         /// If validation fails, prompts the user to provide new input.
         /// </summary>
         /// <param name="args">An array of input arguments to be validated and processed.</param>
-        static void ManegerUserInput(string[] args)
+        private static void ManegerUserInput(string[] args)
         {
             if (!ValidateInput(args))
             {
@@ -90,7 +90,7 @@
         /// <summary>
         /// Clears the console screen
         /// </summary>
-        static void CleerTheScreen()
+        private static void CleerTheScreen()
         {
             Console.Clear();
         }
@@ -98,7 +98,7 @@
         /// <summary>
         /// Prints the menu on a blank screen.
         /// </summary>
-        static void PrintMenu()
+        private static void PrintMenu()
         {
             CleerTheScreen();
             Print("menu");
@@ -119,7 +119,7 @@
         /// Manages the menu
         /// displaying it and handling selection
         /// </summary>
-        static void MenuManagement()
+        private static void MenuManagement()
         {
             PrintMenu();
             string UserSelection = Console.ReadLine();
@@ -182,7 +182,7 @@
         /// <summary>
         /// This function returns the user to the menu.
         /// </summary>
-        static void BackToMenu()
+        private static void BackToMenu()
         {
             Print("Press any key to return to the menu.");
             Console.ReadKey();
@@ -194,7 +194,7 @@
         /// </summary>
         /// <param name="arg">Gets a list of ints</param>
         /// <returns>Returns an INT of the quantity.</returns>
-        static int CountElements(List<int> arg)
+        private static int CountElements(List<int> arg)
         {
             int count = 0;
             foreach (int item in arg)
@@ -209,7 +209,7 @@
         /// </summary>
         /// <param name="arg">The array of strings whose elements are to be counted.</param>
         /// <returns>The total count of elements in the array.</returns>
-        static int CountElements(string[] arg)
+        private static int CountElements(string[] arg)
         {
             int count = 0;
             foreach (string item in arg)
@@ -223,7 +223,7 @@
         /// </summary>
         /// <param name="arg">Gets a list of ints</param>
         /// <returns>List item value as INT</returns>
-        static int FindSum(List<int> arg)
+        private static int FindSum(List<int> arg)
         {
             int sum = 0;
             foreach (int item in arg)
@@ -238,7 +238,7 @@
         /// </summary>
         /// <param name="arg">Gets a list of ints</param>
         /// <returns>Highest number as int</returns>
-        static int FindMax(List<int> arg)
+        private static int FindMax(List<int> arg)
         {
             int max = arg[0];
             foreach (int item in arg)
@@ -256,7 +256,7 @@
         /// </summary>
         /// <param name="arg">Gets a list of ints</param>
         /// <returns>Lowest number as int</returns>
-        static int FindMin(List<int> arg)
+        private static int FindMin(List<int> arg)
         {
             int min = arg[0];
             foreach (int item in arg)
@@ -275,7 +275,7 @@
         /// <param name="numerator">The numerator for the calculation.</param>
         /// <param name="denominator">The denominator for the calculation.</param>
         /// <returns>The calculated average as a double.</returns>
-        static double FindAverage(int numerator, int denominator)
+        private static double FindAverage(int numerator, int denominator)
         {
             return (double)numerator / denominator;
         }
@@ -283,7 +283,7 @@
         /// <summary>
         /// This function turns off the software.
         /// </summary>
-        static void Exit()
+        private static void Exit()
         {
             Print("Exiting...");
             Environment.Exit(0);
@@ -293,7 +293,7 @@
         /// This function accepts a double and prints it.
         /// </summary>
         /// <param name="arg">double</param>
-        static void Print(double arg)
+        private static void Print(double arg)
         {
             Console.WriteLine(arg);
         }
@@ -302,7 +302,7 @@
         /// This function accepts a string and prints it.
         /// </summary>
         /// <param name="arg">string</param>
-        static void Print(string arg)
+        private static void Print(string arg)
         {
             Console.WriteLine(arg);
         }
@@ -311,7 +311,7 @@
         /// This function accepts an int and prints it
         /// </summary>
         /// <param name="arg">int</param>
-        static void Print(int arg)
+        private static void Print(int arg)
         {
             Console.WriteLine(arg);
         }
@@ -320,7 +320,7 @@
         /// This function receives a list of strings and prints it.
         /// </summary>
         /// <param name="arg">List of strings</param>
-        static void Print(List<string> arg)
+        private static void Print(List<string> arg)
         {
             foreach (string item in arg)
             {
@@ -333,7 +333,7 @@
         /// This function accepts a list of ints and prints it.
         /// </summary>
         /// <param name="arg">List of ints</param>
-        static void Print(List<int> arg)
+        private static void Print(List<int> arg)
         {
             foreach (int item in arg)
             {
