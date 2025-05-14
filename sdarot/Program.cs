@@ -116,8 +116,7 @@
         }
 
         /// <summary>
-        /// Manages the menu
-        /// displaying it and handling selection
+        /// Manages the main menu's interaction flow. Displays the menu options, captures user input, processes the selection, and handles transitions back to the menu.
         /// </summary>
         private static void MenuManagement()
         {
@@ -138,6 +137,10 @@
             MenuManagement();
         }
 
+        /// <summary>
+        /// Handles the user's selection from the menu by executing the corresponding functionality.
+        /// </summary>
+        /// <param name="userSelection">The menu option selected by the user as a string.</param>
         private static void UserSelectionSwitch(string userSelection)
         {
             switch (userSelection)
@@ -184,6 +187,7 @@
                     break;
             }
         }
+        
         /// <summary>
         /// Creates a copy of the provided list of integers.
         /// </summary>
@@ -263,6 +267,7 @@
             }
             return count;
         }
+        
         /// <summary>
         /// This function returns the value of all members.
         /// </summary>
