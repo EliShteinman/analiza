@@ -122,9 +122,25 @@
         private static void MenuManagement()
         {
             PrintMenu();
-            string UserSelection = Console.ReadLine();
+            string userSelection = Console.ReadLine();
             CleerTheScreen();
-            switch (UserSelection)
+            UserSelectionSwitch(userSelection);
+            BackToMenu();
+        }
+
+        /// <summary>
+        /// This function returns the user to the menu.
+        /// </summary>
+        private static void BackToMenu()
+        {
+            Print("Press any key to return to the menu.");
+            Console.ReadKey();
+            MenuManagement();
+        }
+
+        private static void UserSelectionSwitch(string userSelection)
+        {
+            switch (userSelection)
             {
                 case "a": // a. Input a Series. (Replace the current series)
                     string[] ignore = new string[] { };
@@ -167,19 +183,7 @@
                     Print("Please select a valid option.");
                     break;
             }
-            BackToMenu();
         }
-
-        /// <summary>
-        /// This function returns the user to the menu.
-        /// </summary>
-        private static void BackToMenu()
-        {
-            Print("Press any key to return to the menu.");
-            Console.ReadKey();
-            MenuManagement();
-        }
-
         /// <summary>
         /// Creates a copy of the provided list of integers.
         /// </summary>
