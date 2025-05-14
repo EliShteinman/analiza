@@ -406,7 +406,6 @@
             {
                 Console.WriteLine(arg[i]);
             }
-
         }
 
         /// <summary>
@@ -419,7 +418,6 @@
             {
                 Console.WriteLine(arg[i]);
             }
-
         }
     }
 }
