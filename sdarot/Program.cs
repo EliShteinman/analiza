@@ -4,13 +4,13 @@
     /// <summary>
     /// The software itself
     /// </summary>
-    class StatsCalculator
+    internal static class StatsCalculator
     {
         /// <summary>
         /// A collection that stores integer values, representing the current series of numbers
         /// inputted or managed in the StatsCalculator.
         /// </summary>
-        private static List<int> numbers;
+        private static List<int> _numbers = null!;
 
         /// <summary>
         /// The entry point for the application. Validates the input and manages the program flow.
@@ -32,6 +32,7 @@
             {
                 return false;
             }
+
             foreach (string arg in args)
             {
                 if (!int.TryParse(arg, out int temp) || temp < 0)
@@ -39,6 +40,7 @@
                     return false;
                 }
             }
+
             return true;
         }
 
@@ -48,10 +50,10 @@
         /// <param name="args">An array of string inputs, where each element is expected to represent a positive integer.</param>
         private static void ToIntList(string[] args)
         {
-            numbers = new List<int>();
+            _numbers = [];
             foreach (string arg in args)
             {
-                numbers.Add(int.Parse(arg));
+                _numbers.Add(int.Parse(arg));
             }
         }
 
@@ -66,7 +68,7 @@
             Print("A minimum of 3 members is required.");
             Print("Separate each element with a space.");
             Print("For example \"1 24 567\"");
-            string input = Console.ReadLine();
+            string input = Console.ReadLine()!;
             string[] temp = input.Split(' ');
             return temp;
         }
@@ -80,9 +82,10 @@
         {
             if (!ValidateInput(args))
             {
-                string[] userargs = GetUserInput();
-                ManegerUserInput(userargs);
+                string[] userArgs = GetUserInput();
+                ManegerUserInput(userArgs);
             }
+
             ToIntList(args);
             MenuManagement();
         }
@@ -121,7 +124,7 @@
         private static void MenuManagement()
         {
             PrintMenu();
-            string userSelection = Console.ReadLine();
+            string userSelection = Console.ReadLine()!;
             CleerTheScreen();
             UserSelectionSwitch(userSelection);
             BackToMenu();
@@ -146,37 +149,38 @@
             switch (userSelection)
             {
                 case "a": // a. Input a Series. (Replace the current series)
-                    string[] ignore = new string[] { };
+                    string[] ignore = [];
                     ManegerUserInput(ignore);
                     break;
                 case "b": // b. Display the series in the order it was entered.
-                    Print(numbers);
+                    Print(_numbers);
                     break;
                 case "c": // c. Display the series in the reversed order it was entered.
-                    for (int i = CountElements(numbers) - 1; i >= 0; i--)
+                    for (int i = CountElements(_numbers) - 1; i >= 0; i--)
                     {
-                        Print(numbers[i]);
+                        Print(_numbers[i]);
                     }
+
                     break;
                 case "d": // d. Display the series in sorted order (from low to high).
-                    List<int> temp = CopyList(numbers);
+                    List<int> temp = CopyList(_numbers);
                     SortList(temp);
                     Print(temp);
                     break;
                 case "e": // e. Display the Max value of the series.
-                    Print(FindMax(numbers));
+                    Print(FindMax(_numbers));
                     break;
                 case "f": // f. Display the Min value of the series.
-                    Print(FindMin(numbers));
+                    Print(FindMin(_numbers));
                     break;
                 case "g": // g. Display the Average of the series.
-                    Print(FindAverage(FindSum(numbers), CountElements(numbers)));
+                    Print(FindAverage(FindSum(_numbers), CountElements(_numbers)));
                     break;
                 case "h": // h. Display the Number of elements in the series.
-                    Print(CountElements(numbers));
+                    Print(CountElements(_numbers));
                     break;
                 case "i": // i. Display the Sum of the series.
-                    Print(FindSum(numbers));
+                    Print(FindSum(_numbers));
                     break;
                 case "j": // j. Exit.
                     Exit();
@@ -187,7 +191,7 @@
                     break;
             }
         }
-        
+
         /// <summary>
         /// Creates a copy of the provided list of integers.
         /// </summary>
@@ -195,11 +199,12 @@
         /// <returns>A new list containing all elements from the input list.</returns>
         private static List<int> CopyList(List<int> arg)
         {
-            List<int> temp = new List<int>();
-            foreach (int item in arg)
+            List<int> temp = [];
+            for (int i = 0; i < CountElements(arg) - 1; i++)
             {
-                temp.Add(item);
+                temp.Add(arg[i]);
             }
+
             return temp;
         }
 
@@ -220,6 +225,7 @@
                         swapped = true;
                     }
                 }
+
                 if (!swapped)
                 {
                     break;
@@ -246,10 +252,11 @@
         private static int CountElements(List<int> arg)
         {
             int count = 0;
-            foreach (int item in arg)
+            foreach (int _ in arg)
             {
                 count++;
             }
+
             return count;
         }
 
@@ -261,13 +268,30 @@
         private static int CountElements(string[] arg)
         {
             int count = 0;
-            foreach (string item in arg)
+            foreach (string _ in arg)
             {
                 count++;
             }
+
             return count;
         }
-        
+
+        /// <summary>
+        /// Counts the number of elements in a list of strings.
+        /// </summary>
+        /// <param name="arg">A list of strings to count the elements from.</param>
+        /// <returns>The total count of elements in the provided list.</returns>
+        private static int CountElements(List<string> arg)
+        {
+            int count = 0;
+            foreach (string _ in arg)
+            {
+                count++;
+            }
+
+            return count;
+        }
+
         /// <summary>
         /// This function returns the value of all members.
         /// </summary>
@@ -276,10 +300,11 @@
         private static int FindSum(List<int> arg)
         {
             int sum = 0;
-            foreach (int item in arg)
+            for (int i = 0; i < CountElements(arg) - 1; i++)
             {
-                sum += item;
+                sum += arg[i];
             }
+
             return sum;
         }
 
@@ -291,13 +316,14 @@
         private static int FindMax(List<int> arg)
         {
             int max = arg[0];
-            foreach (int item in arg)
+            for (int i = 0; i < CountElements(arg) - 1; i++)
             {
-                if (item > max)
+                if (arg[i] > max)
                 {
-                    max = item;
+                    max = arg[i];
                 }
             }
+
             return max;
         }
 
@@ -309,13 +335,14 @@
         private static int FindMin(List<int> arg)
         {
             int min = arg[0];
-            foreach (int item in arg)
+            for (int i = 0; i < CountElements(arg) - 1; i++)
             {
-                if (item < min)
+                if (arg[i] < min)
                 {
-                    min = item;
+                    min = arg[i];
                 }
             }
+
             return min;
         }
 
@@ -372,9 +399,9 @@
         /// <param name="arg">List of strings</param>
         private static void Print(List<string> arg)
         {
-            foreach (string item in arg)
+            for (int i = 0; i < CountElements(arg) - 1; i++)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(arg[i]);
             }
 
         }
@@ -385,9 +412,9 @@
         /// <param name="arg">List of ints</param>
         private static void Print(List<int> arg)
         {
-            foreach (int item in arg)
+            for (int i = 0; i < CountElements(arg) - 1; i++)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(arg[i]);
             }
 
         }
