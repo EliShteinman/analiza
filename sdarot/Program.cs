@@ -1,31 +1,32 @@
 ﻿namespace sdarot
 {
-
     /// <summary>
-    /// The software itself
+    /// Provides methods for performing statistical calculations on numerical data.
     /// </summary>
     internal static class StatsCalculator
     {
         /// <summary>
-        /// A collection that stores integer values, representing the current series of numbers
-        /// inputted or managed in the StatsCalculator.
+        /// A static variable that represents a collection of numeric values.
+        /// This list is utilized to store and process a series of double-precision floating-point numbers
+        /// entered by the user or manipulated through application operations.
         /// </summary>
-        private static List<int> _numbers = null!;
+        private static List<double> _numbers = null!;
 
         /// <summary>
-        /// The entry point for the application. Validates the input and manages the program flow.
+        /// Entry point of the application, initiates user input handling and subsequent processes.
         /// </summary>
-        /// <param name="args">An array of input arguments provided to the application.</param>
+        /// <param name="args">An array of command-line arguments passed to the application.</param>
         private static void Main(string[] args)
         {
             UserInputManager(args);
         }
 
         /// <summary>
-        /// Validates the input arguments to ensure they meet the required conditions.
+        /// Validates the input arguments, ensuring that there are at least three elements,
+        /// all of which are non-negative numbers.
         /// </summary>
-        /// <param name="args">An array of input arguments provided to the application.</param>
-        /// <returns>True if the input arguments are valid; otherwise, false.</returns>
+        /// <param name="args">An array of input arguments to be validated.</param>
+        /// <returns>Returns true if the input is valid; otherwise, false.</returns>
         private static bool ValidateInput(string[] args)
         {
             if (CountElements(args) < 3)
@@ -35,7 +36,7 @@
 
             for (int i = 0; i < CountElements(args); i++)
             {
-                if (!int.TryParse(args[i], out int temp) || temp < 0)
+                if (!double.TryParse(args[i], out double temp) || temp < 0)
                 {
                     return false;
                 }
@@ -45,22 +46,23 @@
         }
 
         /// <summary>
-        /// Converts an array of strings representing numbers into a list of integers.
+        /// Converts an array of string representations of numbers into a list of doubles.
         /// </summary>
-        /// <param name="args">An array of string inputs, where each element is expected to represent a positive integer.</param>
+        /// <param name="args">An array of strings containing numeric values to be parsed and added to the list.</param>
         private static void ToIntList(string[] args)
         {
             _numbers = [];
             for (int i = 0; i < CountElements(args); i++)
             {
-                _numbers.Add(int.Parse(args[i]));
+                _numbers.Add(double.Parse(args[i]));
             }
         }
 
         /// <summary>
-        /// Responsible for receiving input from the user
+        /// Prompts the user to input a series of positive numbers, separated by spaces,
+        /// ensuring a minimum of three elements are entered.
         /// </summary>
-        /// <returns>Returns an arr of strings containing the user's input.</returns>
+        /// <returns>An array of strings containing the numbers entered by the user.</returns>
         private static string[] GetUserInput()
         {
             CleerTheScreen();
@@ -74,10 +76,10 @@
         }
 
         /// <summary>
-        /// Manages and validates the input from the user, ensuring it meets the required conditions.
-        /// If validation fails, prompts the user to provide new input.
+        /// Manages the handling and validation of user input to ensure proper data processing.
+        /// If input is invalid, prompts for re-entry until valid input is provided.
         /// </summary>
-        /// <param name="args">An array of input arguments to be validated and processed.</param>
+        /// <param name="args">An array of command-line arguments or user-entered input values to be processed.</param>
         private static void UserInputManager(string[] args)
         {
             if (!ValidateInput(args))
@@ -91,7 +93,7 @@
         }
 
         /// <summary>
-        /// Clears the console screen
+        /// Clears the console screen to provide a clean slate for subsequent output.
         /// </summary>
         private static void CleerTheScreen()
         {
@@ -99,7 +101,7 @@
         }
 
         /// <summary>
-        /// Prints the menu on a blank screen.
+        /// Displays the main menu options to the user by clearing the screen and printing predefined menu items.
         /// </summary>
         private static void PrintMenu()
         {
@@ -122,7 +124,8 @@
         }
 
         /// <summary>
-        /// Manages the main menu's interaction flow. Displays the menu options, captures user input, processes the selection, and handles transitions back to the menu.
+        /// Handles the menu navigation by displaying the menu, processing user input, and executing corresponding actions.
+        /// Facilitates interaction between the user and the application by managing menu options and returning to the main menu after execution.
         /// </summary>
         private static void MenuManagement()
         {
@@ -134,7 +137,8 @@
         }
 
         /// <summary>
-        /// This function returns the user to the menu.
+        /// Waits for user input to proceed and navigates back to the main menu.
+        /// Ensures continuity of the program by allowing the user to return to the main menu after an action is completed.
         /// </summary>
         private static void BackToMenu()
         {
@@ -144,9 +148,10 @@
         }
 
         /// <summary>
-        /// Handles the user's selection from the menu by executing the corresponding functionality.
+        /// Handles the user's menu selection and executes the corresponding functionality
+        /// based on the selected option.
         /// </summary>
-        /// <param name="userSelection">The menu option selected by the user as a string.</param>
+        /// <param name="userSelection">A string representing the user's selection from the menu options.</param>
         private static void UserSelectionSwitch(string userSelection)
         {
             switch (userSelection)
@@ -166,7 +171,7 @@
 
                     break;
                 case "d": // d. Display the series in sorted order (from low to high).
-                    List<int> temp = CopyList(_numbers);
+                    List<double> temp = CopyList(_numbers);
                     SortList(temp);
                     Print(temp);
                     break;
@@ -196,13 +201,13 @@
         }
 
         /// <summary>
-        /// Creates a copy of a list containing an int.
+        /// Creates a new list by copying all elements from the input list.
         /// </summary>
-        /// <param name="arg">The list of integers to be copied.</param>
-        /// <returns>A new list containing all elements from the input list.</returns>
-        private static List<int> CopyList(List<int> arg)
+        /// <param name="arg">The list of doubles to be copied.</param>
+        /// <returns>A new list containing the same elements as the input list.</returns>
+        private static List<double> CopyList(List<double> arg)
         {
-            List<int> temp = [];
+            List<double> temp = [];
             for (int i = 0; i < CountElements(arg); i++)
             {
                 temp.Add(arg[i]);
@@ -212,10 +217,10 @@
         }
 
         /// <summary>
-        /// Sorts a list of integers in ascending order using the bubble sort algorithm.
+        /// Sorts the provided list of doubles in ascending order using the bubble sort algorithm.
         /// </summary>
-        /// <param name="arg">The list of integers to be sorted.</param>
-        private static void SortList(List<int> arg)
+        /// <param name="arg">The list of doubles to be sorted.</param>
+        private static void SortList(List<double> arg)
         {
             for (int i = 0; i < CountElements(arg); i++)
             {
@@ -237,21 +242,21 @@
         }
 
         /// <summary>
-        /// Swaps the elements in a list at the specified indices.
+        /// Swaps the elements at the specified indices in the provided list.
         /// </summary>
-        /// <param name="arg">The list of integers where the swap will occur.</param>
+        /// <param name="arg">The list in which the elements will be swapped.</param>
         /// <param name="index1">The index of the first element to be swapped.</param>
         /// <param name="index2">The index of the second element to be swapped.</param>
-        private static void SwapInList(List<int> arg, int index1, int index2)
+        private static void SwapInList(List<double> arg, int index1, int index2)
         {
             (arg[index1], arg[index2]) = (arg[index2], arg[index1]);
         }
 
         /// <summary>
-        /// Counts the number of elements in a list.
+        /// Counts the number of elements in the provided list.
         /// </summary>
-        /// <param name="arg">Gets a list of ints</param>
-        /// <returns>Returns an INT of the quantity.</returns>
+        /// <param name="arg">The list of integers whose elements are to be counted.</param>
+        /// <returns>The total number of elements in the list.</returns>
         private static int CountElements(List<int> arg)
         {
             int count = 0;
@@ -264,10 +269,27 @@
         }
 
         /// <summary>
-        /// Counts the number of elements in the provided array.
+        /// Counts the number of elements in the given list of doubles.
         /// </summary>
-        /// <param name="arg">The array of strings whose elements are to be counted.</param>
-        /// <returns>The total count of elements in the array.</returns>
+        /// <param name="arg">The list of doubles whose elements need to be counted.</param>
+        /// <returns>The number of elements in the provided list.</returns>
+        private static int CountElements(List<double> arg)
+        {
+            int count = 0;
+            foreach (int _ in arg)
+            {
+                count++;
+            }
+
+            return count;
+        }
+
+
+        /// <summary>
+        /// Counts the number of elements in the provided string array.
+        /// </summary>
+        /// <param name="arg">An array of strings whose elements are to be counted.</param>
+        /// <returns>Returns the total number of elements in the input array.</returns>
         private static int CountElements(string[] arg)
         {
             int count = 0;
@@ -282,8 +304,8 @@
         /// <summary>
         /// Counts the number of elements in a list of strings.
         /// </summary>
-        /// <param name="arg">A list of strings to count the elements from.</param>
-        /// <returns>The total count of elements in the provided list.</returns>
+        /// <param name="arg">The list of strings to count the elements from.</param>
+        /// <returns>The total number of elements in the list.</returns>
         private static int CountElements(List<string> arg)
         {
             int count = 0;
@@ -296,13 +318,13 @@
         }
 
         /// <summary>
-        /// This function returns the value of all members.
+        /// Calculates the sum of all elements in the provided list of numbers.
         /// </summary>
-        /// <param name="arg">Gets a list of ints</param>
-        /// <returns>List item value as INT</returns>
-        private static int FindSum(List<int> arg)
+        /// <param name="arg">A list of double values whose sum is to be calculated.</param>
+        /// <returns>The sum of all elements in the provided list as a double.</returns>
+        private static double FindSum(List<double> arg)
         {
-            int sum = 0;
+            double sum = 0;
             for (int i = 0; i < CountElements(arg); i++)
             {
                 sum += arg[i];
@@ -312,13 +334,13 @@
         }
 
         /// <summary>
-        /// Accepts a list of ints and returns the highest value.
+        /// Finds the maximum value in a list of numbers.
         /// </summary>
-        /// <param name="arg">Gets a list of ints</param>
-        /// <returns>Highest number as int</returns>
-        private static int FindMax(List<int> arg)
+        /// <param name="arg">A list of double values to search for the maximum value.</param>
+        /// <returns>The maximum value found in the list.</returns>
+        private static double FindMax(List<double> arg)
         {
-            int max = arg[0];
+            double max = arg[0];
             for (int i = 0; i < CountElements(arg); i++)
             {
                 if (arg[i] > max)
@@ -331,13 +353,13 @@
         }
 
         /// <summary>
-        /// Accepts a list of ints and returns the lowest value.
+        /// Determines and returns the minimum value from the given list of double numbers.
         /// </summary>
-        /// <param name="arg">Gets a list of ints</param>
-        /// <returns>Lowest number as int</returns>
-        private static int FindMin(List<int> arg)
+        /// <param name="arg">A list of double numbers from which to find the minimum value.</param>
+        /// <returns>The minimum value in the provided list of numbers.</returns>
+        private static double FindMin(List<double> arg)
         {
-            int min = arg[0];
+            double min = arg[0];
             for (int i = 0; i < CountElements(arg); i++)
             {
                 if (arg[i] < min)
@@ -352,16 +374,16 @@
         /// <summary>
         /// Calculates the average by dividing the numerator by the denominator.
         /// </summary>
-        /// <param name="numerator">The numerator for the calculation.</param>
-        /// <param name="denominator">The denominator for the calculation.</param>
-        /// <returns>The calculated average as a double.</returns>
-        private static double FindAverage(int numerator, int denominator)
+        /// <param name="numerator">The total sum of the series.</param>
+        /// <param name="denominator">The number of elements in the series.</param>
+        /// <returns>The average value of the series as a double.</returns>
+        private static double FindAverage(double numerator, int denominator)
         {
-            return (double)numerator / denominator;
+            return numerator / denominator;
         }
 
         /// <summary>
-        /// This function turns off the software.
+        /// Terminates the program's execution and closes the application.
         /// </summary>
         private static void Exit()
         {
@@ -370,36 +392,37 @@
         }
 
         /// <summary>
-        /// This function accepts a double and prints it.
+        /// Outputs the provided double value to the console.
         /// </summary>
-        /// <param name="arg">double</param>
+        /// <param name="arg">The double value to be printed.</param>
         private static void Print(double arg)
         {
             Console.WriteLine(arg);
         }
 
         /// <summary>
-        /// This function accepts a string and prints it.
+        /// Outputs the provided string argument to the console, appending a newline at the end.
         /// </summary>
-        /// <param name="arg">string</param>
+        /// <param name="arg">The string to be displayed on the console.</param>
         private static void Print(string arg)
         {
             Console.WriteLine(arg);
         }
 
         /// <summary>
-        /// This function accepts an int and prints it
+        /// Outputs the provided integer value to the console.
         /// </summary>
-        /// <param name="arg">int</param>
+        /// <param name="arg">The integer value to be printed.</param>
         private static void Print(int arg)
         {
             Console.WriteLine(arg);
         }
 
         /// <summary>
-        /// This function receives a list of strings and prints it.
+        /// Outputs each element of a list of strings to the console.
+        /// Each element is printed on a new line.
         /// </summary>
-        /// <param name="arg">List of strings</param>
+        /// <param name="arg">The list of strings to be printed to the console.</param>
         private static void Print(List<string> arg)
         {
             for (int i = 0; i < CountElements(arg); i++)
@@ -409,10 +432,10 @@
         }
 
         /// <summary>
-        /// This function accepts a list of ints and prints it.
+        /// Outputs the contents of a list of numbers to the console, each element on a new line.
         /// </summary>
-        /// <param name="arg">List of ints</param>
-        private static void Print(List<int> arg)
+        /// <param name="arg">The list of double values to be printed to the console.</param>
+        private static void Print(List<double> arg)
         {
             for (int i = 0; i < CountElements(arg); i++)
             {
