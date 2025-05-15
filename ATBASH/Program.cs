@@ -94,9 +94,31 @@
         {
             
         }
-        static (int, string[]) ContetAnalysis(string[] args)
+
+        /// <summary>
+        /// Analyzes the decrypted content to determine occurrences of specific watched words.
+        /// </summary>
+        /// <param name="decrypted">An array of strings containing decrypted words to be analyzed.</param>
+        /// <returns>A tuple containing an integer representing the count of matched watched words and an array of the decrypted words.</returns>
+        static (int, string[]) ContetAnalysis(string[] decrypted)
         {
-            
+            int points = 0;
+            string[] WatchedWords = new []
+            {
+                "bomb", 
+                "nukhba", 
+                "fighter", 
+                "rocket", 
+                "secret"
+            };
+            foreach (string word in decrypted)
+            {
+                if (WatchedWords.Contains(word))
+                {
+                    points++;
+                }
+            }
+            return (points, WatchedWords);
         }
         static void SummaryAndPrinting(string[] args)
         {
