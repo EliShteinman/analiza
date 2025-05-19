@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            
+
         }
 
         /// <summary>
@@ -92,7 +92,7 @@
         }
         static string[] InputManager(string[] args)
         {
-            
+
         }
 
         /// <summary>
@@ -103,12 +103,12 @@
         static (int, string[]) ContetAnalysis(string[] decrypted)
         {
             int points = 0;
-            string[] WatchedWords = new []
+            string[] WatchedWords = new[]
             {
-                "bomb", 
-                "nukhba", 
-                "fighter", 
-                "rocket", 
+                "bomb",
+                "nukhba",
+                "fighter",
+                "rocket",
                 "secret"
             };
             foreach (string word in decrypted)
@@ -122,7 +122,7 @@
         }
         static void SummaryAndPrinting(string[] args)
         {
-            
+
         }
     }
 }

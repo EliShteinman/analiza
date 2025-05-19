@@ -6,7 +6,7 @@ public class Report
     public int urgencyLevel;
     public Agent submittedBy;
 
-    public Report( Agent submittedBy, int urgencyLevel, string summary)
+    public Report(Agent submittedBy, int urgencyLevel, string summary)
     {
         this.summary = summary;
         this.submittedBy = submittedBy;

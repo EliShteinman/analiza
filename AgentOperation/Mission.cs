@@ -7,7 +7,7 @@ public class Mission
     Agent assignedAgent;
 
     public Mission(
-        string missionName, 
+        string missionName,
         string targetLocation
         )
     {

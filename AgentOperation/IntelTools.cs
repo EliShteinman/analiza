@@ -9,7 +9,7 @@ public static class IntelTools
         {
             temp += msg[i];
         }
-        
+
         return temp;
     }
     public static void LogTransmission(string agentName, string message)
