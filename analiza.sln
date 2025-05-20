@@ -8,6 +8,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATBASH", "ATBASH\ATBASH.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgentOperation", "AgentOperation\AgentOperation.csproj", "{0FAF2AFA-FE83-4C3A-8D87-3AC3CE40263F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmergencyDispatchCenter", "EmergencyDispatchCenter\EmergencyDispatchCenter.csproj", "{80A5AA04-96D5-4FC7-83FB-260AE57D9BDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modularity", "Modularity\Modularity.csproj", "{B52F0681-1A0D-4B00-8B18-5769618519D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +34,13 @@ Global
 		{0FAF2AFA-FE83-4C3A-8D87-3AC3CE40263F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FAF2AFA-FE83-4C3A-8D87-3AC3CE40263F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FAF2AFA-FE83-4C3A-8D87-3AC3CE40263F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80A5AA04-96D5-4FC7-83FB-260AE57D9BDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80A5AA04-96D5-4FC7-83FB-260AE57D9BDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80A5AA04-96D5-4FC7-83FB-260AE57D9BDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80A5AA04-96D5-4FC7-83FB-260AE57D9BDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B52F0681-1A0D-4B00-8B18-5769618519D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B52F0681-1A0D-4B00-8B18-5769618519D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B52F0681-1A0D-4B00-8B18-5769618519D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B52F0681-1A0D-4B00-8B18-5769618519D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
