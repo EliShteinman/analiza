@@ -1,3 +1,9 @@
+<div align="right">
+
+📄 [לקריאה בעברית ← README.he.md](README.he.md)
+
+</div>
+
 # 🕵️‍♂️ Secret Messages – Atbash Cipher Writer
 
 This is a simple C# console application that allows users to write, encrypt, save, read, and decrypt secret messages using the **Atbash cipher**.
